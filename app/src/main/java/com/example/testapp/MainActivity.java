@@ -1,5 +1,6 @@
 package com.example.testapp;
 
+import com.example.testapp.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
@@ -9,14 +10,21 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 
 import org.tensorflow.lite.Interpreter;
 
@@ -30,10 +38,13 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int REQUEST_IMAGE_UPLOAD = 1;
     private static final String TAG = "MainActivity";
+
+    private DrawerLayout drawerLayout;
     private Interpreter interpreter;
     private List<String> labelsList;
     private TextView resultTextView;
@@ -45,16 +56,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Set up the Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Set up DrawerLayout and NavigationView
+        drawerLayout = findViewById(R.id.drawer_layout); // Ensure this matches the ID in activity_main.xml
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+
+        // Initialize UI components
         imageView = findViewById(R.id.imageView);
         Button uploadButton = findViewById(R.id.uploadButton);
         Button classifyButton = findViewById(R.id.classifyButton);
         resultTextView = findViewById(R.id.result_text);
 
+        // Upload Image
         uploadButton.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(intent, REQUEST_IMAGE_UPLOAD);
         });
 
+        // Classify Image
         classifyButton.setOnClickListener(v -> {
             if (selectedImage != null) {
                 classifyImage(selectedImage);
@@ -63,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Load TensorFlow Lite model and labels
         try {
             interpreter = new Interpreter(loadModelFile());
             labelsList = loadLabels();
@@ -142,5 +173,43 @@ public class MainActivity extends AppCompatActivity {
             Log.e(TAG, "Error during inference", e);
             resultTextView.setText("Error during inference: " + e.getMessage());
         }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.nav_profile:
+                Toast.makeText(this, "Profile selected", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ProfileActivity.class));
+                break;
+
+            case R.id.nav_change_language:
+                Toast.makeText(this, "Change Language selected", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.nav_educational:
+                Toast.makeText(this, "Educational Component selected", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, EducationalActivity.class));
+                break;
+
+            case R.id.nav_support:
+                Toast.makeText(this, "Support selected", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.nav_logout:
+                Toast.makeText(this, "Logout selected", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
+                break;
+
+            default:
+                Toast.makeText(this, "Unknown item selected", Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+        drawerLayout.closeDrawers();
+        return true;
     }
 }

@@ -6,4 +6,18 @@
     <string name="register">Register</string>
     <string name="login">Login</string>
 
+    <!-- Navigation Drawer -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_change_language">Change Language</string>
+    <string name="menu_educational">Educational</string>
+    <string name="menu_support">Support</string>
+    <string name="menu_logout">Logout</string>
+
+    <string name="nav_profile">Profile</string>
+    <string name="nav_change_language">Change Language</string>
+    <string name="nav_educational">Educational</string>
+    <string name="nav_support">Support</string>
+    <string name="nav_logout">Logout</string>
 </resources>
