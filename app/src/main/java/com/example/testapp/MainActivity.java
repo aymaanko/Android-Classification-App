@@ -1,6 +1,5 @@
 package com.example.testapp;
 
-import com.example.testapp.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
@@ -37,6 +36,7 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
+import com.example.testapp.R;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -179,37 +179,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        switch (id) {
-            case R.id.nav_profile:
-                Toast.makeText(this, "Profile selected", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, ProfileActivity.class));
-                break;
-
-            case R.id.nav_change_language:
-                Toast.makeText(this, "Change Language selected", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.nav_educational:
-                Toast.makeText(this, "Educational Component selected", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, EducationalActivity.class));
-                break;
-
-            case R.id.nav_support:
-                Toast.makeText(this, "Support selected", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.nav_logout:
-                Toast.makeText(this, "Logout selected", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, LoginActivity.class));
-                finish();
-                break;
-
-            default:
-                Toast.makeText(this, "Unknown item selected", Toast.LENGTH_SHORT).show();
-                break;
+        if (id == R.id.nav_profile) {
+            Toast.makeText(this, "Profile selected", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, ProfileActivity.class));
+        } else if (id == R.id.nav_change_language) {
+            Toast.makeText(this, "Change Language selected", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_educational) {
+            Toast.makeText(this, "Educational Component selected", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, EducationalActivity.class));
+        } else if (id == R.id.nav_support) {
+            Toast.makeText(this, "Support selected", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_logout) {
+            Toast.makeText(this, "Logout selected", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        } else {
+            Toast.makeText(this, "Unknown item selected", Toast.LENGTH_SHORT).show();
         }
 
         drawerLayout.closeDrawers();
         return true;
     }
+
 }
