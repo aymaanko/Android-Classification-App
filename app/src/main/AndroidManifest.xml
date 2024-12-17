@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.testapp">
@@ -37,5 +36,25 @@
         <!-- ResultActivity -->
         <activity
             android:name=".ResultActivity" />
+
+        <!-- ProfileActivity -->
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true" />
+
+        <!-- EducationalActivity -->
+        <activity
+            android:name=".EducationalActivity"
+            android:exported="true" />
+
+        <!-- ChangeLanguageActivity -->
+        <activity
+            android:name=".ChangeLanguageActivity"
+            android:exported="true" />
+
+        <!-- SupportActivity -->
+        <activity
+            android:name=".SupportActivity"
+            android:exported="true" />
     </application>
 </manifest>

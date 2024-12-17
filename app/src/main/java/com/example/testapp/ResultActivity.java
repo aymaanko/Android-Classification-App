@@ -1,5 +1,11 @@
 package com.example.testapp;
 
+import static com.example.testapp.MainActivity.LANGUAGE_KEY;
+import static com.example.testapp.MainActivity.SETTINGS_PREF;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -18,6 +24,7 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 import java.io.IOException;
 import java.nio.MappedByteBuffer;
 import java.util.List;
+import java.util.Locale;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -54,6 +61,19 @@ public class ResultActivity extends AppCompatActivity {
             resultTextView.setText(result);
         }
     }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        SharedPreferences prefs = newBase.getSharedPreferences(SETTINGS_PREF, MODE_PRIVATE);
+        String language = prefs.getString(LANGUAGE_KEY, "en");
+        Locale locale = new Locale(language);
+        Locale.setDefault(locale);
+
+        Configuration config = newBase.getResources().getConfiguration();
+        config.setLocale(locale);
+
+        super.attachBaseContext(newBase.createConfigurationContext(config));
+    }
+
 
     private MappedByteBuffer loadModelFile() throws IOException {
         return FileUtil.loadMappedFile(this, "model_2_cifar10.tflite");

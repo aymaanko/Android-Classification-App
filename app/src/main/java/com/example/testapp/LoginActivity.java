@@ -1,6 +1,7 @@
 package com.example.testapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -62,10 +63,19 @@ public class LoginActivity extends AppCompatActivity {
             );
 
             if (cursor != null && cursor.moveToFirst()) {
-                // Login successful
+                // Login successful - Get user ID
+                int userId = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_ID));
+
+                // Save user ID to SharedPreferences
+                SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("userId", userId);
+                editor.apply();
+
                 cursor.close();
                 db.close();
 
+                // Navigate to MainActivity
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -78,4 +88,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+    public void onLoginSuccessful(String username) {
+        // Save the username in SharedPreferences
+        SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("username", username);  // Save the username
+        editor.apply();
+
+        // Redirect to MainActivity
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

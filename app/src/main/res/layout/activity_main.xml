@@ -38,7 +38,7 @@
                     android:id="@+id/uploadButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Upload Image"
+                    android:text="@string/upload_image"
                     android:layout_marginTop="100dp"
                     android:layout_gravity="center" />
 
@@ -55,7 +55,7 @@
                     android:id="@+id/classifyButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Classify Image"
+                    android:text="@string/classify_image"
                     android:layout_marginTop="32dp"
                     android:layout_gravity="center" />
 
@@ -64,7 +64,7 @@
                     android:id="@+id/result_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Result will be displayed here"
+                    android:text="@string/result_text"
                     android:layout_marginTop="32dp"
                     android:gravity="center" />
 

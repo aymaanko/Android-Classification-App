@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Application de Classification</string>
+    <string name="username_hint">Nom d\'utilisateur</string>
+    <string name="password_hint">Mot de passe</string>
+    <string name="confirm_password_hint">Confirmer le mot de passe</string>
+    <string name="register_text">Vous n\'avez pas de compte ? Inscrivez-vous ici</string>
+    <string name="register">S\'inscrire</string>
+    <string name="login">Connexion</string>
+    <string name="upload_image">Télécharger une image</string>
+    <string name="classify_image">Classifier l\'image</string>
+    <string name="header_title">Bienvenue !</string>
+    <string name="result_text">Le résultat s\'affichera ici</string>
+    <string name="no_image_selected">Aucune image sélectionnée. Veuillez d\'abord télécharger une image.</string>
+    <string name="image_load_error">Erreur lors du chargement de l\'image</string>
+    <string name="inference_error">Erreur lors de l\'inférence : %1$s</string>
+    <string name="prediction_result">Prédiction : %1$s (%.2f%% de confiance)</string>
+
+    <!-- Navigation Drawer -->
+    <string name="navigation_drawer_open">Ouvrir le menu de navigation</string>
+    <string name="navigation_drawer_close">Fermer le menu de navigation</string>
+    <string name="menu_profile">Profil</string>
+    <string name="menu_change_language">Changer de langue</string>
+    <string name="menu_educational">Éducatif</string>
+    <string name="menu_support">Support</string>
+    <string name="menu_logout">Déconnexion</string>
+    <string name="nav_profile">Profil</string>
+    <string name="nav_change_language">Changer de langue</string>
+    <string name="nav_educational">Éducatif</string>
+    <string name="nav_support">Support</string>
+    <string name="nav_logout">Déconnexion</string>
+
+    <string name="saveButton">Enregistrer</string>
+
+    <string name="edit_name">Nom</string>
+    <string name="edit_password">Mot de passe</string>
+
+    <string name="edit_name_title">Modifier vos informations</string>
+    <string name="change_language_title">Changer la langue!</string>
+    <string name="login_title">S\'inscrire</string>
+    <string name="register_title">Registre</string>
+
+    <string name="educational_combined">
+    1. Bienvenue dans la section éducative !&#10;
+    Cette application permet aux utilisateurs de classer des images en utilisant des modèles d\'intelligence artificielle avancée.&#10;
+    Vous pouvez télécharger une image, et l\'application prédit sa catégorie en fonction des données d\'entraînement.&#10;
+    La classification des images consiste à analyser une image et à attribuer une étiquette en fonction de son contenu.&#10;
+    Par exemple, identifier si une image contient un chat, un chien ou une voiture.&#10;&#10;
+
+    2. L\'application utilise un modèle d\'apprentissage automatique formé sur le jeu de données CIFAR-10,&#10;
+    qui contient 10 classes : avions, voitures, oiseaux, chats, cerfs, chiens, grenouilles, chevaux, navires et camions.&#10;
+    Veuillez vous assurer que l\'image téléchargée appartient à l\'une de ces 10 catégories pour des prédictions précises.&#10;&#10;
+
+    3. Explorez davantage pour découvrir les merveilles de l\'intelligence artificielle et de la classification d\'images !
+</string>
+
+    <string name="support_title">Support</string>
+    <string name="contactText">Contactez-nous :</string>
+
+
+
+
+</resources>

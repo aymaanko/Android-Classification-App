@@ -5,10 +5,21 @@
     android:gravity="center"
     android:padding="19dp">
 
+    <TextView
+        android:id="@+id/register_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register_title"
+        android:layout_marginBottom="1dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="24sp" />
+
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:hint="@string/username_hint"
         android:layout_marginTop="8dp" />
 
@@ -16,14 +27,16 @@
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
         android:layout_marginTop="8dp" />
 
     <EditText
-        android:id="@+id/confirme_password"
+        android:id="@+id/confirm_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:hint="@string/confirm_password_hint"
         android:inputType="textPassword"
         android:layout_marginTop="8dp" />

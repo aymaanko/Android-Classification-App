@@ -1,7 +1,13 @@
 package com.example.testapp;
 
+import static com.example.testapp.MainActivity.LANGUAGE_KEY;
+import static com.example.testapp.MainActivity.SETTINGS_PREF;
+
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Locale;
 
 import database.DatabaseHelper;
 
@@ -31,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         // Initialize views
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
-        confirmPasswordEditText = findViewById(R.id.confirme_password);
+        confirmPasswordEditText = findViewById(R.id.confirm_password);
         errorMessageTextView = findViewById(R.id.errorMessage);
         Button registerButton = findViewById(R.id.registerButton);
 
@@ -41,6 +49,19 @@ public class RegisterActivity extends AppCompatActivity {
         // Set click listener for the Register button
         registerButton.setOnClickListener(v -> registerUser());
     }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        SharedPreferences prefs = newBase.getSharedPreferences(SETTINGS_PREF, MODE_PRIVATE);
+        String language = prefs.getString(LANGUAGE_KEY, "en");
+        Locale locale = new Locale(language);
+        Locale.setDefault(locale);
+
+        Configuration config = newBase.getResources().getConfiguration();
+        config.setLocale(locale);
+
+        super.attachBaseContext(newBase.createConfigurationContext(config));
+    }
+
 
     private void registerUser() {
         String username = usernameEditText.getText().toString().trim();

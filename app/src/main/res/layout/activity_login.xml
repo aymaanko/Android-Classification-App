@@ -5,6 +5,16 @@
     android:gravity="center"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_title"
+        android:layout_marginBottom="1dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="24sp" />
+
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
@@ -39,8 +49,9 @@
         android:id="@+id/registerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? Register here"
+        android:text="@string/register_text"
         android:layout_marginTop="16dp"
         android:layout_gravity="center" />
+
 
 </LinearLayout>

@@ -5,8 +5,9 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@color/colorPrimary"
-    android:gravity="bottom">
+    android:gravity="top"> <!-- Changed gravity to top to align at the top -->
 
+    <!-- Profile Image -->
     <ImageView
         android:id="@+id/header_image"
         android:layout_width="64dp"
@@ -14,6 +15,7 @@
         android:src="@drawable/ic_profile"
         android:layout_gravity="center" />
 
+    <!-- Welcome Text -->
     <TextView
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
@@ -23,13 +25,14 @@
         android:textSize="18sp"
         android:layout_marginTop="8dp" />
 
+    <!-- Username Text -->
     <TextView
         android:id="@+id/header_subtitle"
+        android:text="UserName"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Email"
-        android:textColor="@android:color/white"
-        android:textSize="14sp"
         android:layout_marginTop="4dp" />
 
 </LinearLayout>

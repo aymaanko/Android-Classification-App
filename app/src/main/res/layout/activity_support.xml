@@ -2,12 +2,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center"> <!-- Center content vertically and horizontally -->
+
+    <!-- Title Section -->
+    <TextView
+        android:id="@+id/support_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/support_title"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Contact Us Section -->
+    <TextView
+        android:id="@+id/contactText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contactText"
+        android:textSize="18sp"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="16dp"/>
 
     <TextView
-        android:id="@+id/supportText"
-        android:layout_width="match_parent"
+        android:id="@+id/informations"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Support Content"
-        android:textSize="18sp" />
+        android:text="Email: akorchi07@gmail.com\nPhone: +212 773069527"
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:autoLink="email|phone"
+        android:linksClickable="true"
+        android:onClick="onInformationClicked" />
+
 </LinearLayout>

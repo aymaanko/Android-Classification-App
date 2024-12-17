@@ -1,10 +1,19 @@
 <resources>
-    <string name="app_name">TestApp</string>
+    <string name="app_name">Classification App</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="confirm_password_hint">Confirm Password</string>
+    <string name="register_text">Don\'t have an account? Register here</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="classify_image">Classify Image</string>
+    <string name="header_title">Welcome!</string>
+    <string name="result_text">Result will display here</string>
+    <string name="no_image_selected">No image selected. Please upload an image first.</string>
+    <string name="image_load_error">Error loading image</string>
+    <string name="inference_error">Error during inference: %1$s</string>
+    <string name="prediction_result">Prediction: %1$s (%.2f%% confidence)</string>
 
     <!-- Navigation Drawer -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -14,10 +23,45 @@
     <string name="menu_educational">Educational</string>
     <string name="menu_support">Support</string>
     <string name="menu_logout">Logout</string>
-
     <string name="nav_profile">Profile</string>
     <string name="nav_change_language">Change Language</string>
     <string name="nav_educational">Educational</string>
     <string name="nav_support">Support</string>
     <string name="nav_logout">Logout</string>
+
+    <string name="saveButton">Save</string>
+
+
+    <string name="edit_name">Name</string>
+    <string name="edit_password">Password</string>
+
+    <string name="edit_name_title">Modify your informations</string>
+
+    <string name="change_language_title">Change the language!</string>
+    login_title
+    <string name="login_title">Login</string>
+
+    <string name="register_title">Register</string>
+
+    <string name="educational_combined">
+    1. Welcome to the educational section!\n
+    This app allows users to classify images using advanced artificial intelligence models.\n
+    You can upload an image, and the app predicts its category based on training data.\n
+    Image classification involves analyzing an image and assigning a label based on its content.\n
+    For example, identifying whether an image contains a cat, dog, or car.\n\n
+
+    2. The app uses a machine learning model trained on the CIFAR-10 dataset,\n
+    which contains 10 classes: airplanes, cars, birds, cats, deers, dogs, frogs, horses, ships, and trucks.\n
+    Please ensure the uploaded image belongs to one of these 10 categories for accurate predictions.\n\n
+
+    3. Explore further to discover the wonders of artificial intelligence and image classification!
+</string>
+    <string name="support_title">Support</string>
+    <string name="contactText">Contact Us:</string>
+
+
+
+
+
+
 </resources>
